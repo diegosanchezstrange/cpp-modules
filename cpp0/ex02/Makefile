@@ -1,10 +1,10 @@
-NAME	= phonebook
+NAME	= accounts
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= main.cpp Contact.cpp PhoneBook.cpp
+SRCS	= test.cpp Account.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
