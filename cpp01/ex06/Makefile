@@ -1,10 +1,10 @@
-NAME	= violence
+NAME	= karen
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS	= main.cpp Karen.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -19,7 +19,7 @@ $(NAME): ${OBJS}
 	${CC} ${CFLAGS} ${INCLUDE} ${OBJS} -o ${NAME}
 
 clean:
-		@${RM} ${OBJS} *.dSYM
+		@${RM} ${OBJS} *.dSYM *.replace
 
 fclean:		clean
 		@${RM} ${NAME}
