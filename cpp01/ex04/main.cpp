@@ -5,7 +5,7 @@ std::string ft_get_replaced_string(std::string str, std::string s1, std::string 
 {
     std::string sol;
     int         start;
-    int         next;
+    unsigned long         next;
 
     start = 0;
     while ((next = str.find(s1, start)) != std::string::npos)
@@ -45,3 +45,4 @@ int main(int argc, char **argv)
     fileOu.close();
     return (0);
 }
+

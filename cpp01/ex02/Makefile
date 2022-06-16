@@ -12,8 +12,8 @@ RM		= rm -rf
 
 all: ${NAME}
 
-.c.o:
-	${CC} ${CFLAGS} -c -I${LIBFT}inc $< -o ${<:.c=.o}
+%.o: %.cpp
+	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): ${OBJS}
 	${CC} ${CFLAGS} ${INCLUDE} ${OBJS} -o ${NAME}

@@ -15,3 +15,4 @@ void Zombie::announce(void)
 {
 	std::cout << this->name << " BraiiiiiiizzzZ..." << std::endl;
 }
+
