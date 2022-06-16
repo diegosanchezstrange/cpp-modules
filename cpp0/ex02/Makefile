@@ -2,7 +2,7 @@ NAME	= accounts
 
 CC		= c++
 
-CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
+CFLAGS	= -std=c++98 -Werror -Wextra -Wall -pedantic
 
 SRCS	= test.cpp Account.cpp
 
@@ -12,8 +12,8 @@ RM		= rm -rf
 
 all: ${NAME}
 
-.c.o:
-	${CC} ${CFLAGS} -c -I${LIBFT}inc $< -o ${<:.c=.o}
+%.o: %.cpp
+	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): ${OBJS}
 	${CC} ${CFLAGS} ${INCLUDE} ${OBJS} -o ${NAME}

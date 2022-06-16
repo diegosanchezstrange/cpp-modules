@@ -3,7 +3,8 @@
 int	main(int argc, char	**argv)
 {
 	std::string str;
-	int	i, j;
+	int			i;
+	size_t		j;
 
 	i = 1;
 	j = 0;

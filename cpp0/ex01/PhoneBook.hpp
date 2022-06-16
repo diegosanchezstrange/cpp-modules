@@ -16,7 +16,7 @@ class PhoneBook
         void	ft_list_contacts();
 
     private:
-            int size = 0;
+            int size;
 };
 
 #endif /* __PHONEBOOK_H__ */

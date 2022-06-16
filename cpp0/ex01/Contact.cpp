@@ -43,3 +43,4 @@ void Contact::printData()
     std::cout << "Phone Number : " << this->phoneNumber << std::endl;
     std::cout << "Dark Secret  : " << this->darkSecret << std::endl;
 }
+
