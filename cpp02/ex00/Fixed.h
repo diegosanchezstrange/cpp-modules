@@ -2,8 +2,8 @@
 // Created by diego on 29/05/22.
 //
 
-#ifndef EX00_FIXED_H
-#define EX00_FIXED_H
+#ifndef FIXED_H
+#define FIXED_H
 
 
 class Fixed
@@ -22,4 +22,4 @@ class Fixed
 };
 
 
-#endif //EX00_FIXED_H
+#endif //FIXED_H
