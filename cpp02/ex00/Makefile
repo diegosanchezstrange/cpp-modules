@@ -4,7 +4,7 @@ CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= main.cpp Fixed.cpp
+SRCS	= Fixed.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -12,8 +12,8 @@ RM		= rm -rf
 
 all: ${NAME}
 
-.c.o:
-	${CC} ${CFLAGS} -c -I${LIBFT}inc $< -o ${<:.c=.o}
+%.o: %.cpp
+	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): ${OBJS}
 	${CC} ${CFLAGS} ${INCLUDE} ${OBJS} -o ${NAME}
