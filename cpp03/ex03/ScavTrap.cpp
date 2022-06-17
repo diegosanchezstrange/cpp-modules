@@ -2,10 +2,9 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
-#include "ClapTrap.h"
 #include "ScavTrap.h"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): ClapTrap()
 {
     this->hitpoints = 100;
     this->attckDamage = 20;
@@ -18,7 +17,7 @@ ScavTrap::~ScavTrap()
     std::cout << "Default ScavTrap destructor called." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const name)
+ScavTrap::ScavTrap(std::string const name): ClapTrap(name)
 {
     this->name = name;
     this->hitpoints = 100;

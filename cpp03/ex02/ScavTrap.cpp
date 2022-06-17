@@ -2,7 +2,6 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
-#include "ClapTrap.h"
 #include "ScavTrap.h"
 
 ScavTrap::ScavTrap()
@@ -29,7 +28,7 @@ ScavTrap::ScavTrap(std::string const name)
 
 void ScavTrap::attack(std::string const &target)
 {
-    std::cout << "ClapTrap " << this->name << " attack " << target << ", causing " << this->attckDamage << " points of damage!" << std::endl;
+    std::cout << "ScavTrap " << this->name << " attack " << target << ", causing " << this->attckDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate()

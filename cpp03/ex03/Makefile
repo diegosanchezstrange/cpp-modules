@@ -1,10 +1,10 @@
-NAME	= 
+NAME	= fragTrap
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= 
+SRCS	= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
