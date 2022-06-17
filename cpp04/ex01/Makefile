@@ -1,10 +1,10 @@
-NAME	= 
+NAME	= animals
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= 
+SRCS	= Animal.cpp Dog.cpp Cat.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
