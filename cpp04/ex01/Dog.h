@@ -6,16 +6,19 @@
 #define DOG_H
 
 #include "Animal.h"
+#include "Brain.h"
 
 class Dog: public Animal
 {
+private:
+	Brain * brain;
 public:
     Dog();
     ~Dog();
     Dog(Dog const &obj);
     Dog &operator=(Dog const &obj);
     void makeSound(void) const;
-
+	Brain *getBrain(void) const;
 };
 
 
