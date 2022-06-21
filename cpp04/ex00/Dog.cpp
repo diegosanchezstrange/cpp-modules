@@ -15,7 +15,7 @@ Dog::~Dog()
     std::cout << "Default Dog deconstructor called." << std::endl;
 }
 
-Dog::Dog(const Dog &obj)
+Dog::Dog(const Dog &obj): Animal(obj)
 {
     this->type = obj.type;
 }

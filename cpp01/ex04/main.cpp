@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     name = argv[1];
     name += ".replace";
     fileIn.open(argv[1]);
-    fileOu.open(name);
+    fileOu.open(name.c_str());
     if (!fileIn.is_open() || !fileOu.is_open())
         return (2);
     while (std::getline(fileIn, line).good())

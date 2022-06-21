@@ -2,7 +2,7 @@ NAME	= karen
 
 CC		= c++
 
-CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
+CFLAGS	= -Werror -Wextra -Wall -Wimplicit-fallthrough=0 -std=c++98 -pedantic -fsanitize=address
 
 SRCS	= main.cpp Karen.cpp
 

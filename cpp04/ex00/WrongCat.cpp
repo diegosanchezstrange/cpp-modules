@@ -15,7 +15,7 @@ WrongCat::~WrongCat()
     std::cout << "Default WrongCat deconstructor called." << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &obj)
+WrongCat::WrongCat(const WrongCat &obj): WrongAnimal(obj)
 {
     this->type = obj.type;
 }

@@ -17,7 +17,7 @@ Fixed::Fixed(const int num)
 Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->value = std::roundf(num * (1 << this->fraction));
+    this->value = roundf(num * (1 << this->fraction));
 }
 
 Fixed::~Fixed()
