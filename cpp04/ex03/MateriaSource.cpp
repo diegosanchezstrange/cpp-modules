@@ -5,7 +5,7 @@ MateriaSource::MateriaSource()
     this->num = 0;
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource(){}
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
