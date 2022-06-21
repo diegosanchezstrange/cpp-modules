@@ -10,16 +10,21 @@
 class Character: public ICharacter
 {
 private:
-	AMateria materias[4];
+	AMateria    *materias[4];
 	std::string name;
+    int         num;
 public:
 	Character();
 	~Character();
 	Character(std::string const &name);
-	std::string const & getName() const = 0;
-	void equip(AMateria* m) = 0;
-	void unequip(int idx) = 0;
-	void use(int idx, ICharacter& target) = 0;
+
+    Character(Character const &obj);
+    Character &operator=(Character const &obj);
+
+	std::string const & getName() const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
 };
 
 

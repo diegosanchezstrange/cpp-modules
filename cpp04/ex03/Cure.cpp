@@ -1,5 +1,26 @@
-//
-// Created by diego on 19/6/22.
-//
-
+#include <iostream>
 #include "Cure.h"
+#include "ICharacter.h"
+
+Cure::Cure(): AMateria("cure") {}
+
+Cure::~Cure() {}
+
+Cure::Cure(const Cure &obj): AMateria(obj) {}
+
+Cure &Cure::operator=(const Cure &obj)
+{
+    this->type = obj.type;
+    return (*this);
+}
+
+AMateria *Cure::clone() const
+{
+    AMateria * newMateria = new Cure();
+    return (newMateria);
+}
+
+void Cure::use(ICharacter &target)
+{
+    std::cout << "*heals " << target.getName() << " wounds*" << std::endl;
+}

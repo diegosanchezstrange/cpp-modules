@@ -1,10 +1,10 @@
-NAME	= 
+NAME	= materias
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= 
+SRCS	= AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 

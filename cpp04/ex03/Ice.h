@@ -12,8 +12,6 @@ public:
 
 	Ice &operator=(Ice const &obj);
 
-	std::string const & getType() const;
-
 	AMateria * clone() const;
 	void use(ICharacter & target);
 };

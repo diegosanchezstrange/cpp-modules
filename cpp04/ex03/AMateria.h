@@ -1,7 +1,11 @@
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
+#include "ICharacter.h"
+
 #include <iostream>
+
+class ICharacter;
 
 class AMateria
 {
@@ -9,13 +13,13 @@ class AMateria
 protected:
 	std::string type;
 
+private:
+    AMateria();
+
 public:
-	AMateria();
-	~AMateria();
+	virtual ~AMateria();
 	AMateria(std::string const & type);
 	AMateria(AMateria const &obj);
-
-	AMateria &operator=(AMateria const &obj);
 
 	std::string const & getType() const;
 
