@@ -1,10 +1,10 @@
-NAME	= 
+NAME	= bureaucrat
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= 
+SRCS	= Bureaucrat.cpp Form.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
