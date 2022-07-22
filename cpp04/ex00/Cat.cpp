@@ -2,7 +2,7 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
-#include "Cat.h"
+#include "Cat.hpp"
 
 Cat::Cat()
 {

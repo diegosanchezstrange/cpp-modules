@@ -1,10 +1,10 @@
 #ifndef SCAVTRAP_H
 #define SCAVTRAP_H
 
-#include "ClapTrap.h"
+#include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap: virtual public ClapTrap
+class ScavTrap: public ClapTrap
 {
 public:
     ScavTrap();

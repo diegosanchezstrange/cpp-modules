@@ -2,7 +2,7 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
-#include "WrongCat.h"
+#include "WrongCat.hpp"
 
 WrongCat::WrongCat()
 {

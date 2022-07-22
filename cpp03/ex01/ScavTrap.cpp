@@ -2,8 +2,8 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
-#include "ClapTrap.h"
-#include "ScavTrap.h"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
 {

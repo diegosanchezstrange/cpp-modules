@@ -5,7 +5,7 @@
 #ifndef POINT_H
 #define POINT_H
 
-#include "Fixed.h"
+#include "Fixed.hpp"
 
 class Point
 {

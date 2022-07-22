@@ -2,10 +2,10 @@
 // Created by Diego Sanchez strange on 6/21/22.
 //
 
-#include "Ice.h"
-#include "Character.h"
-#include "Cure.h"
-#include "MateriaSource.h"
+#include "Ice.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

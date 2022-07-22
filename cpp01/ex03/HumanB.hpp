@@ -1,4 +1,4 @@
-#include "Weapon.h"
+#include "Weapon.hpp"
 
 #ifndef HUMANB_H
 #define HUMANB_H

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ClapTrap.h"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {

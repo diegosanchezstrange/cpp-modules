@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Animal.h"
-#include "Dog.h"
-#include "Cat.h"
-#include "WrongAnimal.h"
-#include "WrongCat.h"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {

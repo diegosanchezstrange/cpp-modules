@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Weapon.h"
+#include "Weapon.hpp"
 
 #ifndef HUMANA_H
 #define HUMANA_H

@@ -2,7 +2,7 @@
 #define FRAGTRAP_H
 
 #include <iostream>
-#include "ClapTrap.h"
+#include "ClapTrap.hpp"
 
 class FragTrap: virtual public ClapTrap
 {

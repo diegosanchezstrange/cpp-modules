@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Ice.h"
-#include "ICharacter.h"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(): AMateria("ice") {}
 

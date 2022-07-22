@@ -1,7 +1,4 @@
-//
-// Created by diego on 12/5/22.
-//
-#include "Zombie.h"
+#include "Zombie.hpp"
 #include <iostream>
 
 Zombie::Zombie(std::string name)

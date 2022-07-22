@@ -1,7 +1,7 @@
 
-#include "ClapTrap.h"
-#include "FragTrap.h"
-#include "ScavTrap.h"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void)

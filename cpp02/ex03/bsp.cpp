@@ -1,4 +1,4 @@
-#include "Point.h"
+#include "Point.hpp"
 
 float sign(Point const a, Point const b, Point const c)
 {

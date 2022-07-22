@@ -5,7 +5,7 @@
 #ifndef ICHARACTER_H
 #define ICHARACTER_H
 
-#include "AMateria.h"
+#include "AMateria.hpp"
 
 #include <iostream>
 

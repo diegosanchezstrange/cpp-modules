@@ -5,7 +5,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "ICharacter.h"
+#include "ICharacter.hpp"
 
 class Character: public ICharacter
 {

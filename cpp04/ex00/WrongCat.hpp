@@ -6,7 +6,7 @@
 #define WRONGCAT_H
 
 #include <iostream>
-#include "WrongAnimal.h"
+#include "WrongAnimal.hpp"
 
 class WrongCat: public WrongAnimal
 {

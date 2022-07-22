@@ -1,4 +1,4 @@
-#include "WrongAnimal.h"
+#include "WrongAnimal.hpp"
 
 
 WrongAnimal::WrongAnimal()

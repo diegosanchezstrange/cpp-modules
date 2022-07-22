@@ -2,7 +2,7 @@
 // Created by diego on 29/05/22.
 //
 
-#include "Karen.h"
+#include "Karen.hpp"
 
 int main(void)
 {

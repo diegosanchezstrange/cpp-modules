@@ -10,11 +10,11 @@ std::string ft_get_replaced_string(std::string str, std::string s1, std::string 
     start = 0;
     while ((next = str.find(s1, start)) != std::string::npos)
     {
-        sol += str.substr(start, next);
+        sol += str.substr(start, next - start);
         sol += s2;
-        start += next + s1.length();
+        start += next - start + s1.length();
     }
-    sol += str.substr(start, str.length());
+    sol += str.substr(start, str.length() - start);
     return (sol);
 }
 

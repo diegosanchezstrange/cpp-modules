@@ -1,7 +1,7 @@
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
-#include "ICharacter.h"
+#include "ICharacter.hpp"
 
 #include <iostream>
 
