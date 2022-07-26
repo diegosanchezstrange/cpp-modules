@@ -17,6 +17,18 @@ DiamondTrap::~DiamondTrap()
     std::cout << "Default DiamondTrap destructor called." << std::endl;
 }
 
+DiamondTrap::DiamondTrap(DiamondTrap &obj)
+{
+    this->name = obj.name;
+    std::cout << "Default copy constructor called." << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(DiamondTrap &obj)
+{
+    this->name = obj.name;
+    return (*this);
+}
+
 DiamondTrap::DiamondTrap(std::string const name): ScavTrap(name), FragTrap(name)
 {
     this->name = name;

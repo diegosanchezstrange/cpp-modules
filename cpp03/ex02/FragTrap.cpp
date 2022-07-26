@@ -26,6 +26,18 @@ FragTrap::FragTrap(std::string const name)
     std::cout << "FragTrap constructor called." << std::endl;
 }
 
+FragTrap::FragTrap(FragTrap &obj)
+{
+    this->name = obj.name;
+    std::cout << "Default copy constructor called." << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap &obj)
+{
+    this->name = obj.name;
+    return (*this);
+}
+
 void FragTrap::attack(std::string const &target)
 {
     std::cout << "FragTrap " << this->name << " attack " << target << ", causing " << this->attckDamage << " points of damage!" << std::endl;

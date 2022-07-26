@@ -10,6 +10,8 @@ public:
     DiamondTrap();
     ~DiamondTrap();
     DiamondTrap(std::string const name);
+    DiamondTrap(DiamondTrap &obj);
+    DiamondTrap &operator=(DiamondTrap &obj);
     void attack(std::string const & target);
 };
 

@@ -2,9 +2,10 @@
 // Created by Diego Sanchez strange on 17/06/2022.
 //
 
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
     this->hitpoints = 100;
     this->attckDamage = 20;
@@ -17,13 +18,25 @@ ScavTrap::~ScavTrap()
     std::cout << "Default ScavTrap destructor called." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string const name)
 {
     this->name = name;
     this->hitpoints = 100;
     this->attckDamage = 20;
     this->energypoints = 50;
     std::cout << "ScavTrap constructor called." << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap &obj)
+{
+    this->name = obj.name;
+    std::cout << "ScavTrap copy constructor called." << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap &obj)
+{
+    this->name = obj.name;
+    return (*this);
 }
 
 void ScavTrap::attack(std::string const &target)
