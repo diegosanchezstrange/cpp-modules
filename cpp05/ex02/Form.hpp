@@ -51,6 +51,8 @@ public:
             return "Grade too low";
         };
     };
+
+    void execute(Bureaucrat const & executor);
 };
 
 std::ostream & operator<<(std::ostream &out, const Form& form);
