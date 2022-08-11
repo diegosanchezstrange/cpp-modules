@@ -52,7 +52,19 @@ public:
         };
     };
 
-    void execute(Bureaucrat const & executor);
+    class FormNotSignedException: public std::exception
+    {
+    public:
+       FormNotSignedException() {}
+        virtual ~FormNotSignedException() throw() {}
+
+        virtual const char * what() const throw()
+        {
+            return "Form not signed";
+        };
+    };
+
+    virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream &out, const Form& form);

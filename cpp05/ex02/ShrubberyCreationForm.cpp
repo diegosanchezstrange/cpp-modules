@@ -24,3 +24,27 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     this->target = obj.target;
     return (*this);
 }
+
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+{
+    if (!this->getIsSigned())
+        throw (Form::FormNotSignedException());
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw (Form::GradeTooLowException());
+    std::ofstream file (this->target + "_shrubbery", std::ofstream::out);
+    std::cout << "Creating a ASCII tree." << std::endl;
+
+    file
+    <<           "v .   ._, |_  .,"         << std::endl
+    <<       "`-._\\/  .  \\ /    |/_"        << std::endl
+    <<            "\\\\  _\\, y | \\//"         << std::endl
+    <<      "_\\_.___\\, \\/ -.\\||"          << std::endl
+    <<        "`7-,--.`._||  / / ,"         << std::endl
+    <<        "/'     `-. `./ / |/_.'"      << std::endl
+    <<                 "|    |//"           << std::endl
+    <<                 "|_    /"            << std::endl
+    <<                 "|-   |"             << std::endl
+    <<                 "|   =|"             << std::endl
+    <<                 "|    |"             << std::endl <<
+  "--------------------/ ,  . \\--------._"  << std::endl;
+}
