@@ -38,3 +38,4 @@ void Cat::makeSound() const
 }
 
 Brain *Cat::getBrain() { return (this->brain); }
+
