@@ -28,12 +28,21 @@ Form::Form(const std::string &str, int gradeToSign, int gradeToExecute): name(st
     this->isSigned = false;
 }
 
-void Form::beSigned(Bureaucrat bur)
+void Form::beSigned(Bureaucrat const & bur)
 {
     if (bur.getGrade() <= this->gradeToSign)
         this->isSigned = true;
     else
-        throw(GradeTooLowException());
+        throw(Form::GradeTooLowException());
+}
+
+void Form::executeForm(const Bureaucrat &executor) const
+{
+    if (!this->getIsSigned())
+        throw (Form::FormNotSignedException());
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw (Form::GradeTooLowException());
+    this->execute(executor);
 }
 
 std::string Form::getName() const { return (this->name); }

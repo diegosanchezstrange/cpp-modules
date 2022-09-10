@@ -4,11 +4,14 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() {}
+ShrubberyCreationForm::ShrubberyCreationForm()
+: Form("ShrubberyCreationForm", 145, 137)
+{}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): Form("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+: Form("ShrubberyCreationForm", 145, 137)
 {
 	this->target = target;
 }
@@ -27,10 +30,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-    if (!this->getIsSigned())
-        throw (Form::FormNotSignedException());
-    if (executor.getGrade() > this->getGradeToExecute())
-        throw (Form::GradeTooLowException());
+    (void) executor;
     std::ofstream file (this->target + "_shrubbery", std::ofstream::out);
     std::cout << "Creating a ASCII tree." << std::endl;
 

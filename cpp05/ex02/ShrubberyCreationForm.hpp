@@ -1,5 +1,5 @@
 #ifndef SHRUBBERYCREATIONFORM_H
-#define SHRUBBERYCREATIONFORM_H
+# define SHRUBBERYCREATIONFORM_H
 
 #include <iostream>
 #include <fstream>
@@ -13,7 +13,7 @@ private:
 
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string const &target);
+	ShrubberyCreationForm(const std::string &target);
 	~ShrubberyCreationForm();
 	ShrubberyCreationForm(ShrubberyCreationForm const &obj);
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &obj);
