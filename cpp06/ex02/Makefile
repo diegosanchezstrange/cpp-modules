@@ -1,10 +1,10 @@
-NAME	= 
+NAME	= real_type
 
 CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= 
+SRCS	= main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
