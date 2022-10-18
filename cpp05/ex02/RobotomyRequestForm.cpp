@@ -30,11 +30,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
     return (*this);
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::executeForm() const
 {
     int random;
 
-    (void) executor;
     std::cout << "** DRILLING NOISES **" << std::endl;
     srand(time(NULL));
     random = std::rand() % 101;

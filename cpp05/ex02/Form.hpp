@@ -17,7 +17,7 @@ private:
 public:
     Form();
     Form(std::string const &str, int gradeToSign, int gradeToExecute);
-    ~Form();
+    virtual ~Form();
     Form(Form const &obj);
     Form &operator=(Form const &obj);
 
@@ -64,9 +64,9 @@ public:
         };
     };
 
-    virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual void executeForm() const = 0;
 
-    void executeForm(Bureaucrat const & executor) const;
+    void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream & operator<<(std::ostream &out, const Form& form);
