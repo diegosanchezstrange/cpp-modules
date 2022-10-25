@@ -6,14 +6,16 @@
 int main(void)
 {
     Bureaucrat test("pepe", 42);
-    PresidentialPardonForm form("Diegas");
+    PresidentialPardonForm formPresi("Diegas");
+    ShrubberyCreationForm formShrubbery("Diegas");
+    RobotomyRequestForm formRobotomy("Diegas");
 
     std::cout << test << std::endl;
 
     try
     {
-		test.signForm(form);
-        test.executeForm(form);
+		test.signForm(formPresi);
+        test.executeForm(formPresi);
     }
     catch (std::exception & err) {
         std::cout << "ERROR" << std::endl;
