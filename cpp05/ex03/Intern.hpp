@@ -8,5 +8,9 @@
 class Intern
 {
 	public:
-		Form	*makeForm(std::string form, std::string target);
+        Intern();
+        Intern(const Intern & obj);
+        ~Intern();
+        Intern &operator=(const Intern & obj);
+        Form	*makeForm(std::string form, std::string target);
 };

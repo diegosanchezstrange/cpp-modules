@@ -11,6 +11,9 @@ int main(void)
     RobotomyRequestForm formRobotomy("Diegas");
 
     std::cout << test << std::endl;
+    std::cout << formPresi << std::endl;
+    std::cout << formShrubbery << std::endl;
+    std::cout << formRobotomy << std::endl;
 
     try
     {

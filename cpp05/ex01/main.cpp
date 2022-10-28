@@ -6,6 +6,7 @@ int main(void)
 	Form		form("B34", 12, 42);
 
     std::cout << test << std::endl;
+    std::cout << form << std::endl;
 
     try 
     {

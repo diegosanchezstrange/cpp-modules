@@ -1,5 +1,10 @@
 #include "Intern.hpp"
 
+Intern::Intern() {}
+Intern::~Intern() {}
+Intern::Intern(const Intern &obj) { (void)obj; }
+Intern &Intern::operator=(const Intern &obj) { (void)obj; return (*this); }
+
 Form *Intern::makeForm(std::string form, std::string target)
 {
 	int			sol 		= -1;
