@@ -4,7 +4,7 @@ CC		= c++
 
 CFLAGS	= -Werror -Wextra -Wall -std=c++98 -pedantic -fsanitize=address
 
-SRCS	= main.cpp
+SRCS	= Base.cpp main.cpp
 
 OBJS	= ${SRCS:.cpp=.o}
 
