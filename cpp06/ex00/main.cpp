@@ -16,18 +16,23 @@ int print_inf(std::string str)
 int is_number(std::string str)
 {
     std::size_t n;
+    std::size_t f = 0;
 
     if (str[0] == '-')
-        n = str.find_first_not_of("123456789", 1);
+        n = str.find_first_not_of("0123456789", 1);
     else
-        n = str.find_first_not_of("123456789");
+        n = str.find_first_not_of("0123456789");
 
     if (n == std::string::npos)
         return (1);
-    else if (str[n] != '.' ||
-             str.find_first_not_of("123456789", n + 1) != std::string::npos)
-        return (0);
-    return (1);
+
+    else if (str[n] == 'f' && n == str.length() - 1 && n != 0)
+        return (1);
+    else if (str[n] == '.' && n != 0 &&
+        ((f = str.find_first_not_of("0123456789", n + 1)) == std::string::npos ||
+        (str[f] == 'f' && f == str.length() - 1)))
+        return (1);
+    return (0);
 }
 
 int main(int argc, char **argv)
@@ -47,9 +52,12 @@ int main(int argc, char **argv)
 
     double res = atof(str.c_str());
     double resInt = static_cast<int>(res);
+    char    c = static_cast<char>(resInt);
 
-    std::cout << "char: " << (std::isprint(resInt) ? str : "Not displayable.")
-              << std::endl;
+    if (std::isprint(resInt))
+        std::cout << "char: " << c << std::endl;
+    else 
+        std::cout << "char: Not displayable." << std::endl;
     std::cout << "int: " << resInt << std::endl;
     std::cout << "float: " << static_cast<float>(res)
               << (res - atoi(str.c_str()) > 0 ? "f" : ".0f") << std::endl;

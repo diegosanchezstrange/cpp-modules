@@ -1,16 +1,6 @@
 #include <iostream>
 #include <stdint.h>
-
-class Data
-{
-	public:
-		int	x;
-
-		Data(int x)
-		{
-			this->x = x;
-		}
-};
+#include "Data.hpp"
 
 uintptr_t serialize(Data* ptr)
 {
