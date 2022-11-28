@@ -28,9 +28,9 @@ int is_number(std::string str)
 
     else if (str[n] == 'f' && n == str.length() - 1 && n != 0)
         return (1);
-    else if (str[n] == '.' && n != 0 &&
+    else if (str[n] == '.' && n != 0 && n != str.length() - 1 &&
         ((f = str.find_first_not_of("0123456789", n + 1)) == std::string::npos ||
-        (str[f] == 'f' && f == str.length() - 1)))
+        (str[f] == 'f' && f == str.length() - 1 && f - n != 1)))
         return (1);
     return (0);
 }
