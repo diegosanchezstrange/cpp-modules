@@ -50,8 +50,8 @@ int main(int argc, char **argv)
         return (1);
     }
 
-    double res = atof(str.c_str());
-    double resInt = static_cast<int>(res);
+    double  res = atof(str.c_str());
+    int     resInt = static_cast<int>(res);
     char    c = static_cast<char>(resInt);
 
     if (std::isprint(resInt))
