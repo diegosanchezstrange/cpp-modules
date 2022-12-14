@@ -1,3 +1,4 @@
+#include <cctype>
 #include <cstdlib>
 #include <iostream>
 #include <limits>
@@ -41,26 +42,46 @@ int main(int argc, char **argv)
         return (1);
 
     std::string str(argv[1]);
+
+    // check if the input is a char
+    if (str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]))
+    {
+        std::cout << "char: " << str << std::endl;
+        std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+        std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+        return (0);
+    }
+
+    // check for this special cases
     if (str == "-inff" || str == "+inff" || str == "nanf" || str == "-inf" ||
         str == "+inf" || str == "nan")
         return (print_inf(str));
+
+    // check if this is a valid number
     if (!is_number(str))
     {
         std::cout << "That is not a number sry :(." << std::endl;
         return (1);
     }
 
+    // Input was a valid number so print it normally
     double  res = atof(str.c_str());
     int     resInt = static_cast<int>(res);
     char    c = static_cast<char>(resInt);
 
     if (std::isprint(resInt))
         std::cout << "char: " << c << std::endl;
+    else if (res > std::numeric_limits<char>::max() || res < std::numeric_limits<char>::min())
+        std::cout << "char: " << "impossible" << std::endl;
     else 
         std::cout << "char: Not displayable." << std::endl;
-    std::cout << "int: " << resInt << std::endl;
+    if (res > std::numeric_limits<int>::max() || res < std::numeric_limits<int>::min())
+        std::cout << "int: " << "impossible" << std::endl;
+    else
+        std::cout << "int: " << resInt << std::endl;
     std::cout << "float: " << static_cast<float>(res)
-              << (res - atoi(str.c_str()) > 0 ? "f" : ".0f") << std::endl;
+              << (res - atoi(str.c_str()) != 0 ? "f" : ".0f") << std::endl;
     std::cout << "double: " << res << (res - atoi(str.c_str()) > 0 ? "" : ".0")
               << std::endl;
 

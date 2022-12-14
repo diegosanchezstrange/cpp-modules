@@ -10,7 +10,7 @@
 template <typename T> class Array
 {
   public:
-    Array() : arr(NULL), len(0) { std::cout << "hola" << std::endl; };
+    Array() : arr(NULL), len(0) { };
     ~Array() { delete[] arr; };
     Array(unsigned int size) : arr(new T[size]), len(size){};
     Array(const Array &o) : arr(NULL) { *this = o; }
