@@ -16,7 +16,6 @@ int main()
         arr[3] = 4;
         for (size_t i = 0; i < arr.size(); i++)
             std::cout << "I: " << i << " VAL: " << arr[i] << std::endl;
-        Array<int> arr2(arr);
         try
         {
             arr[5] = 12;
@@ -25,8 +24,16 @@ int main()
         {
             std::cout << e.what() << std::endl;
         }
+        Array<int> arr2(arr);
+        std::cout << "arr[0] = " << arr[0] << std::endl;
+        arr[0] = 42;
+        std::cout << "-------ARR-------" << std::endl;
         for (size_t j = 0; j < arr.size(); j++)
+            std::cout << "J: " << j << " VAL: " << arr[j] << std::endl;
+        std::cout << "-------ARR2-------" << std::endl;
+        for (size_t j = 0; j < arr2.size(); j++)
             std::cout << "J: " << j << " VAL: " << arr2[j] << std::endl;
+        std::cout << "------------------" << std::endl;
     }
     {
         Array<std::string> emptyArr;

@@ -7,7 +7,8 @@
 #include <stdexcept>
 #include <string>
 
-template <typename T> class Array
+template <typename T> 
+class Array
 {
   public:
     Array() : arr(NULL), len(0) { };

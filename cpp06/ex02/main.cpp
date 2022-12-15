@@ -63,11 +63,13 @@ int	main()
     Base * test1 = generate();
     Base & test2 = *generate();
     Base & test3 = *generate();
+    Base & test4 = *generate();
 
     identify(test);
     identify(test1);
     identify(test2);
     identify(test3);
+    identify(test4);
 
     delete test;
     delete test1;

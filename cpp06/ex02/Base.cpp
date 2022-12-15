@@ -9,7 +9,10 @@ Base::~Base()
     std::cout << "Base destructor" << std::endl;
 }
 
-Base::Base() {}
+Base::Base() 
+{
+    std::cout << "Base con" << std::endl;
+}
 
 Base::Base(const Base &obj) { (void)obj; }
 
