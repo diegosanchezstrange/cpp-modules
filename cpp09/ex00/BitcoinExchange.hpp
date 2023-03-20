@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <stdlib.h>
 #include <string>
 
 class BitcoinExchange
@@ -16,6 +17,8 @@ class BitcoinExchange
     BitcoinExchange &operator=(const BitcoinExchange &other);
 
     void checkPrice(const std::string &datem, const int &price);
+
+    void checkPrices();
 
     void load();
 

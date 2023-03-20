@@ -11,13 +11,7 @@ int main(int argc, char *argv[])
 
     BitcoinExchange exchange(argv[1]);
 
-    // std::cout << "----------------" << std::endl;
-    // exchange.checkPrice("2010-09-13", 0);
-    // std::cout << "----------------" << std::endl;
-    // exchange.checkPrice("2010-09-16", 0);
-    // std::cout << "----------------" << std::endl;
-    // exchange.checkPrice("2010-09-14", 0);
-    // std::cout << "----------------" << std::endl;
-    exchange.checkPrice("2009-01-01", 0);
+    exchange.checkPrices();
+
     return 0;
 }
