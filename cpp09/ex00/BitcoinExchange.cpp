@@ -39,8 +39,97 @@ void BitcoinExchange::checkPrice(const std::string &date, const int &price)
         this->m_data.lower_bound(date);
     if (it != this->m_data.begin() && it != this->m_data.end())
         it--;
-    std::cout << it->first << " => " << price << " = " << it->second
-              << std::endl;
+    std::cout << it->first << " => " << price << " = "
+              << atof(it->second.c_str()) * price << std::endl;
+}
+
+static std::string &rtrim(std::string &s, const char *t)
+{
+    s.erase(s.find_last_not_of(t) + 1);
+    return s;
+}
+
+static std::string &ltrim(std::string &s, const char *t)
+{
+    s.erase(0, s.find_first_not_of(t));
+    return s;
+}
+
+static std::string &trim(std::string &s, const char *t)
+{
+    return ltrim(rtrim(s, t), t);
+}
+
+static bool isDate(const std::string &date)
+{
+    if (date.length() != 10)
+        return false;
+    if (date[4] != '-' || date[7] != '-')
+        return false;
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (date[i] < '0' || date[i] > '9')
+            return false;
+    }
+    return true;
+}
+
+void BitcoinExchange::checkPrices()
+{
+    std::ifstream file(this->m_filename.c_str(), std::ifstream::in);
+
+    char *p;
+    int iprice;
+    std::string line;
+    std::getline(file, line);
+    const char *spaces = " \t\n\r\f\v";
+
+    while (std::getline(file, line))
+    {
+        std::string date = line.substr(0, line.find('|'));
+        std::string price = line.substr(line.find('|') + 1, line.length());
+
+        date = trim(date, spaces);
+        price = trim(price, spaces);
+
+        if (!isDate(date))
+        {
+            std::cout << "Error: bad date => " << date << std::endl;
+            continue;
+        }
+
+        strtod(price.c_str(), &p);
+        if (atof(price.c_str()) < 0)
+        {
+            std::cout << "Error: not a positive number" << std::endl;
+            continue;
+        }
+        else if (*p != '\0')
+        {
+            std::cout << "Error: bad input => " << price << std::endl;
+            continue;
+        }
+        m_data[date] = price;
+
+        try
+        {
+            iprice = std::stoi(price);
+        }
+        catch (const std::invalid_argument &e)
+        {
+            std::cout << "Invalid argument: " << price.c_str() << std::endl;
+            continue;
+        }
+        catch (const std::out_of_range &e)
+        {
+            std::cout << "Error: too large a number." << std::endl;
+            continue;
+        }
+        checkPrice(date, iprice);
+    }
+    file.close();
 }
 
 void BitcoinExchange::load()
@@ -49,15 +138,24 @@ void BitcoinExchange::load()
 
     std::string line;
 
+    char *p;
+
     std::getline(file, line);
 
     while (std::getline(file, line))
     {
         std::string date = line.substr(0, line.find(','));
         std::string price = line.substr(line.find(',') + 1, line.length());
+        // check if price is a float
 
-        // std::cout << date << " " << price << std::endl;
-        m_data[date] = price;
+        strtod(price.c_str(), &p);
+        if (atof(price.c_str()) >= 0 && *p == '\0')
+            m_data[date] = price;
+        else
+        {
+            std::cout << "Invalid argument: " << price.c_str() << std::endl;
+            exit(1);
+        }
     }
     file.close();
 }
