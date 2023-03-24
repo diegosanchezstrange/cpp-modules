@@ -4,27 +4,33 @@ RNP::RNP() {}
 
 RNP::~RNP() {}
 
-void RNP::push(int num) { stack.push(num); }
+void RNP::push(float num) { stack.push(num); }
 
 void RNP::operate(char operation)
 {
-    int num1 = stack.top();
+    float num1 = stack.top();
     stack.pop();
-    int num2 = stack.top();
+    float num2 = stack.top();
     stack.pop();
     switch (operation)
     {
     case '+':
-        stack.push(num1 + num2);
+        stack.push(num2 + num1);
         break;
     case '-':
-        stack.push(num1 - num2);
+        stack.push(num2 - num1);
         break;
     case '*':
-        stack.push(num1 * num2);
+        stack.push(num2 * num1);
         break;
     case '/':
-        stack.push(num1 / num2);
+        stack.push(num2 / num1);
         break;
     }
+}
+
+void RNP::print()
+{
+    std::cout << stack.top() << std::endl;
+    stack.pop();
 }
