@@ -16,7 +16,7 @@ class BitcoinExchange
     ~BitcoinExchange();
     BitcoinExchange &operator=(const BitcoinExchange &other);
 
-    void checkPrice(const std::string &datem, const int &price);
+    void checkPrice(const std::string &datem, const float &price);
 
     void checkPrices();
 

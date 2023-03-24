@@ -27,7 +27,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     return *this;
 }
 
-void BitcoinExchange::checkPrice(const std::string &date, const int &price)
+void BitcoinExchange::checkPrice(const std::string &date, const float &price)
 {
     if (m_data.find(date) != m_data.end())
     {
@@ -37,9 +37,9 @@ void BitcoinExchange::checkPrice(const std::string &date, const int &price)
     }
     std::map<std::string, std::string>::iterator it =
         this->m_data.lower_bound(date);
-    if (it != this->m_data.begin() && it != this->m_data.end())
+    if (it != this->m_data.begin())
         it--;
-    std::cout << it->first << " => " << price << " = "
+    std::cout << date << " => " << price << " = "
               << atof(it->second.c_str()) * price << std::endl;
 }
 
@@ -81,7 +81,7 @@ void BitcoinExchange::checkPrices()
     std::ifstream file(this->m_filename.c_str(), std::ifstream::in);
 
     char *p;
-    int iprice;
+    float fprice;
     std::string line;
     std::getline(file, line);
     const char *spaces = " \t\n\r\f\v";
@@ -100,10 +100,17 @@ void BitcoinExchange::checkPrices()
             continue;
         }
 
+        fprice = atof(price.c_str());
+
         strtod(price.c_str(), &p);
-        if (atof(price.c_str()) < 0)
+        if (fprice < 0)
         {
             std::cout << "Error: not a positive number" << std::endl;
+            continue;
+        }
+        else if (fprice > 10000)
+        {
+            std::cout << "Error: too large a number." << std::endl;
             continue;
         }
         else if (*p != '\0')
@@ -111,23 +118,24 @@ void BitcoinExchange::checkPrices()
             std::cout << "Error: bad input => " << price << std::endl;
             continue;
         }
-        m_data[date] = price;
 
-        try
-        {
-            iprice = std::stoi(price);
-        }
-        catch (const std::invalid_argument &e)
-        {
-            std::cout << "Invalid argument: " << price.c_str() << std::endl;
-            continue;
-        }
-        catch (const std::out_of_range &e)
-        {
-            std::cout << "Error: too large a number." << std::endl;
-            continue;
-        }
-        checkPrice(date, iprice);
+        // m_data[date] = price;
+
+        // try
+        // {
+        //     iprice = std::stoi(price);
+        // }
+        // catch (const std::invalid_argument &e)
+        // {
+        //     std::cout << "Invalid argument: " << price.c_str() << std::endl;
+        //     continue;
+        // }
+        // catch (const std::out_of_range &e)
+        // {
+        //     std::cout << "Error: too large a number." << std::endl;
+        //     continue;
+        // }
+        checkPrice(date, fprice);
     }
     file.close();
 }
