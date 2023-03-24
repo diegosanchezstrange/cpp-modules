@@ -9,12 +9,12 @@ class RNP
   public:
     RNP();
     ~RNP();
-    void push(int num);
+    void push(float num);
     void operate(char operation);
-    void print() { std::cout << stack.top() << std::endl; }
+    void print();
 
   private:
-    std::stack<int> stack;
+    std::stack<float> stack;
 };
 
 #endif // !RNP_HPP
