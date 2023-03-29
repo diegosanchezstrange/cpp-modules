@@ -11,7 +11,7 @@ BitcoinExchange::BitcoinExchange(const std::string &filename)
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
-    m_data = other.m_data;
+    m_data     = other.m_data;
     m_filename = other.m_filename;
 }
 
@@ -21,7 +21,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 {
     if (this != &other)
     {
-        m_data = other.m_data;
+        m_data     = other.m_data;
         m_filename = other.m_filename;
     }
     return *this;
@@ -80,18 +80,18 @@ void BitcoinExchange::checkPrices()
 {
     std::ifstream file(this->m_filename.c_str(), std::ifstream::in);
 
-    char *p;
-    float fprice;
+    char       *p;
+    float       fprice;
     std::string line;
     std::getline(file, line);
     const char *spaces = " \t\n\r\f\v";
 
     while (std::getline(file, line))
     {
-        std::string date = line.substr(0, line.find('|'));
+        std::string date  = line.substr(0, line.find('|'));
         std::string price = line.substr(line.find('|') + 1, line.length());
 
-        date = trim(date, spaces);
+        date  = trim(date, spaces);
         price = trim(price, spaces);
 
         if (!isDate(date))
@@ -118,23 +118,6 @@ void BitcoinExchange::checkPrices()
             std::cout << "Error: bad input => " << price << std::endl;
             continue;
         }
-
-        // m_data[date] = price;
-
-        // try
-        // {
-        //     iprice = std::stoi(price);
-        // }
-        // catch (const std::invalid_argument &e)
-        // {
-        //     std::cout << "Invalid argument: " << price.c_str() << std::endl;
-        //     continue;
-        // }
-        // catch (const std::out_of_range &e)
-        // {
-        //     std::cout << "Error: too large a number." << std::endl;
-        //     continue;
-        // }
         checkPrice(date, fprice);
     }
     file.close();
@@ -152,7 +135,7 @@ void BitcoinExchange::load()
 
     while (std::getline(file, line))
     {
-        std::string date = line.substr(0, line.find(','));
+        std::string date  = line.substr(0, line.find(','));
         std::string price = line.substr(line.find(',') + 1, line.length());
         // check if price is a float
 
