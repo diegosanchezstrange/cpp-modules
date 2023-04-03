@@ -4,28 +4,28 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <sstream>
 #include <stdlib.h>
 #include <string>
 
-class BitcoinExchange
-{
-  public:
-    BitcoinExchange();
-    BitcoinExchange(const std::string &filename);
-    BitcoinExchange(const BitcoinExchange &other);
-    ~BitcoinExchange();
-    BitcoinExchange &operator=(const BitcoinExchange &other);
+class BitcoinExchange {
+public:
+  BitcoinExchange();
+  BitcoinExchange(const std::string &filename);
+  BitcoinExchange(const BitcoinExchange &other);
+  ~BitcoinExchange();
+  BitcoinExchange &operator=(const BitcoinExchange &other);
 
-    void checkPrice(const std::string &datem, const float &price);
+  void checkPrice(const std::string &datem, const float &price);
 
-    void checkPrices();
+  void checkPrices();
 
-    void load();
+  void load();
 
-  private:
-    std::map<std::string, std::string> m_data;
-    std::string m_database;
-    std::string m_filename;
+private:
+  std::map<std::string, std::string> m_data;
+  std::string m_database;
+  std::string m_filename;
 };
 
 #endif // !BITCOIN_EXCHANGE_HPP
