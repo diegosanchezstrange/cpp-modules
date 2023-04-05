@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <unistd.h>
 
 BitcoinExchange::BitcoinExchange() : m_database("data.csv") {}
 
@@ -92,11 +93,23 @@ void BitcoinExchange::checkPrices()
 {
     std::ifstream file(this->m_filename.c_str(), std::ifstream::in);
 
+    if (!file.is_open())
+    {
+        std::cout << "Error: file not found" << std::endl;
+        exit(1);
+    }
+
     char       *p;
     float       fprice;
     std::string line;
     std::getline(file, line);
     const char *spaces = " \t\n\r\f\v";
+
+    if (line != "date|value" && line != "date | value")
+    {
+        std::cout << "Error: bad file format" << std::endl;
+        exit(1);
+    }
 
     while (std::getline(file, line))
     {
@@ -120,7 +133,7 @@ void BitcoinExchange::checkPrices()
             std::cout << "Error: not a positive number" << std::endl;
             continue;
         }
-        else if (fprice > 10000)
+        else if (fprice > 1000)
         {
             std::cout << "Error: too large a number." << std::endl;
             continue;
@@ -139,14 +152,33 @@ void BitcoinExchange::load()
 {
     std::ifstream file(this->m_database.c_str(), std::ifstream::in);
 
+    if (!file.is_open())
+    {
+        std::cout << "Error: file not found" << std::endl;
+        exit(1);
+    }
+
     std::string line;
 
     char *p;
 
     std::getline(file, line);
 
+    if (line != "date,exchange_rate")
+    {
+        std::cout << "Error: bad file format" << std::endl;
+        exit(1);
+    }
+
     while (std::getline(file, line))
     {
+        if (line.empty())
+            continue;
+        if (line.find(',') == std::string::npos)
+        {
+            std::cout << "Error: bad file format" << std::endl;
+            exit(1);
+        }
         std::string date  = line.substr(0, line.find(','));
         std::string price = line.substr(line.find(',') + 1, line.length());
         // check if price is a float
