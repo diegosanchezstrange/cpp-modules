@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
             if (atoi(argv[i]) > 0 && *p == '\0')
                 l.push_back(atoi(argv[i]));
             else if (strcmp(argv[i], "0") == 0)
-                v.push_back(0);
+                l.push_back(0);
             else
             {
                 std::cout << "Invalid argument: " << argv[i] << std::endl;
